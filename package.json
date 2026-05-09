@@ -1,0 +1,23 @@
+{
+  "name": "aether-space",
+  "version": "2.0.0",
+  "description": "Ultra-Premium Solar System 3D Explorer - AAA Quality WebGL Experience",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "optimize": "vite build --minify terser"
+  },
+  "dependencies": {
+    "three": "^0.160.0",
+    "gsap": "^3.12.2"
+  },
+  "devDependencies": {
+    "vite": "^4.4.0",
+    "terser": "^5.20.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

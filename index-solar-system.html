@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solar System Explorer - Immersive 3D exploration of the planets and moons. Discover our cosmic neighborhood with stunning 3D models.">
+    <meta name="keywords" content="solar system, planets, 3D exploration, space, astronomy, interactive, education">
+    <meta name="author" content="Solar System Explorer">
+    <meta name="theme-color" content="#050505">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Solar System Explorer - Journey Through Our Cosmic Neighborhood">
+    <meta property="og:description" content="Explore the planets, moons, and wonders of our solar system in stunning 3D">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://solarsystemexplorer.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Solar System Explorer">
+    <meta name="twitter:description" content="Explore our cosmic neighborhood in 3D">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23FDB813'/></svg>">
+    
+    <title>Solar System Explorer - Interactive 3D Journey</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-premium.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+    <!-- ===== CUSTOM CURSOR ===== -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <span class="logo-icon">☀️</span>
+                <span class="logo-text">SOLAR</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#discovery" class="nav-link">Discovery</a></li>
+                <li><a href="#planets" class="nav-link">Planets</a></li>
+                <li><a href="#explorer" class="nav-link">Explorer</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="hero solar-hero">
+        <canvas id="canvas-3d"></canvas>
+        <div class="stars-container" id="stars-container"></div>
+
+        <div class="hero-content">
+            <div class="hero-title-wrapper">
+                <h1 class="hero-title">
+                    <span class="title-word">SOLAR</span>
+                    <span class="title-word">SYSTEM</span>
+                </h1>
+            </div>
+
+            <p class="hero-subtitle">
+                Journey Through Our Cosmic Neighborhood
+            </p>
+
+            <p class="hero-description">
+                Explore eight worlds, countless moons, and the magnificent Sun that lights our celestial home. Experience the wonders of our solar system in stunning 3D.
+            </p>
+
+            <button class="cta-button primary" id="explore-btn">
+                <span class="button-text">START EXPLORATION</span>
+            </button>
+        </div>
+
+        <div class="scroll-indicator">↓ Scroll to explore ↓</div>
+    </section>
+
+    <!-- ===== DISCOVERY SECTION - INTERACTIVE SOLAR SYSTEM ===== -->
+    <section id="discovery" class="discovery-section">
+        <div class="section-label">Interactive</div>
+        <h2 class="section-title">Solar System Discovery</h2>
+        <p class="section-description">Drag to rotate, scroll to zoom. Click on any planet to learn more.</p>
+        
+        <div class="discovery-container">
+            <canvas id="canvas-solar-system"></canvas>
+            <div class="planet-info-panel" id="planet-info">
+                <h3 id="planet-name">Select a planet</h3>
+                <p id="planet-description">Click on any planet in the 3D model to see details</p>
+                <div id="planet-stats">
+                    <div class="stat"><span class="label">Distance from Sun:</span> <span class="value">-</span></div>
+                    <div class="stat"><span class="label">Diameter:</span> <span class="value">-</span></div>
+                    <div class="stat"><span class="label">Day Length:</span> <span class="value">-</span></div>
+                    <div class="stat"><span class="label">Moons:</span> <span class="value">-</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PLANETS SECTION ===== -->
+    <section id="planets" class="planets-section">
+        <div class="section-label">Celestial Bodies</div>
+        <h2 class="section-title">The Eight Planets</h2>
+        
+        <div class="planets-grid">
+            <!-- Mercury -->
+            <div class="planet-card">
+                <div class="planet-icon">☿️</div>
+                <h3>Mercury</h3>
+                <p class="planet-distance">57.9M km</p>
+                <p>The smallest planet and closest to the Sun. A rocky world with extreme temperatures.</p>
+                <div class="planet-highlight">Fastest orbit: 88 days</div>
+            </div>
+
+            <!-- Venus -->
+            <div class="planet-card">
+                <div class="planet-icon">♀️</div>
+                <h3>Venus</h3>
+                <p class="planet-distance">108.2M km</p>
+                <p>Earth's toxic twin with crushing atmospheric pressure and surface temperatures hot enough to melt lead.</p>
+                <div class="planet-highlight">Hottest planet: 462°C</div>
+            </div>
+
+            <!-- Earth -->
+            <div class="planet-card">
+                <div class="planet-icon">🌍</div>
+                <h3>Earth</h3>
+                <p class="planet-distance">149.6M km</p>
+                <p>Our home. The only known planet to harbor life, with liquid water, a protective atmosphere, and a single moon.</p>
+                <div class="planet-highlight">The blue planet</div>
+            </div>
+
+            <!-- Mars -->
+            <div class="planet-card">
+                <div class="planet-icon">♂️</div>
+                <h3>Mars</h3>
+                <p class="planet-distance">227.9M km</p>
+                <p>The red planet, once flowing with water. Home to the largest volcano and deepest canyon in our solar system.</p>
+                <div class="planet-highlight">Two small moons: Phobos & Deimos</div>
+            </div>
+
+            <!-- Jupiter -->
+            <div class="planet-card">
+                <div class="planet-icon">♃</div>
+                <h3>Jupiter</h3>
+                <p class="planet-distance">778.5M km</p>
+                <p>The gas giant king. A massive world of storms and incredible magnetosphere with 95 known moons.</p>
+                <div class="planet-highlight">Great Red Spot storm</div>
+            </div>
+
+            <!-- Saturn -->
+            <div class="planet-card">
+                <div class="planet-icon">♄</div>
+                <h3>Saturn</h3>
+                <p class="planet-distance">1.434B km</p>
+                <p>The ringed wonder. Famous for its spectacular system of icy rings and 146 known moons including Titan.</p>
+                <div class="planet-highlight">Most beautiful rings</div>
+            </div>
+
+            <!-- Uranus -->
+            <div class="planet-card">
+                <div class="planet-icon">♅</div>
+                <h3>Uranus</h3>
+                <p class="planet-distance">2.873B km</p>
+                <p>The ice giant that rotates on its side. A mysterious world of methane clouds and a faint ring system.</p>
+                <div class="planet-highlight">Tilted 98° rotation</div>
+            </div>
+
+            <!-- Neptune -->
+            <div class="planet-card">
+                <div class="planet-icon">♆</div>
+                <h3>Neptune</h3>
+                <p class="planet-distance">4.495B km</p>
+                <p>The windy ice giant. The farthest planet with supersonic winds and deep blue coloring from methane atmosphere.</p>
+                <div class="planet-highlight">Strongest winds known</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 3D EXPLORER SECTION ===== -->
+    <section id="explorer" class="explorer-section">
+        <div class="section-label">Advanced</div>
+        <h2 class="section-title">3D Planetary Models</h2>
+        <p class="section-description">Experience detailed 3D models of selected planets and moons</p>
+        
+        <div class="explorer-controls">
+            <button class="model-btn active" data-planet="sun">Sun</button>
+            <button class="model-btn" data-planet="earth">Earth</button>
+            <button class="model-btn" data-planet="mars">Mars</button>
+            <button class="model-btn" data-planet="jupiter">Jupiter</button>
+            <button class="model-btn" data-planet="saturn">Saturn</button>
+            <button class="model-btn" data-planet="moon">Moon</button>
+        </div>
+
+        <div class="explorer-display">
+            <canvas id="canvas-explorer"></canvas>
+            <div class="model-info">
+                <h3 id="model-title">The Sun</h3>
+                <p id="model-description">The star at the center of our solar system. A massive ball of hot plasma held together by gravity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about-section">
+        <div class="section-label">Knowledge</div>
+        <h2 class="section-title">About Our Solar System</h2>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>🌟 The Sun</h3>
+                <p>Contains 99.86% of all mass in our solar system. A 4.6 billion year old G-type main-sequence star.</p>
+            </div>
+            <div class="about-card">
+                <h3>⚙️ The Goldilocks Zone</h3>
+                <p>Earth sits in the perfect zone where liquid water can exist on a planetary surface - key to life.</p>
+            </div>
+            <div class="about-card">
+                <h3>🪨 Formation</h3>
+                <p>Formed approximately 4.568 billion years ago from a giant molecular cloud of dust and gas.</p>
+            </div>
+            <div class="about-card">
+                <h3>🚀 Exploration</h3>
+                <p>Humans have visited the Moon. Robots explore Mars, Venus, Mercury, and the outer planets.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact-section">
+        <div class="section-label">Connect</div>
+        <h2 class="section-title">Get in Touch</h2>
+        
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email" required class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <textarea name="message" placeholder="Your Message" required class="form-input form-textarea"></textarea>
+            </div>
+            
+            <button type="submit" class="cta-button primary">
+                <span class="button-text">Send Message</span>
+            </button>
+        </form>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Solar System Explorer. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">Discord</a>
+                <a href="#" class="social-link">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
